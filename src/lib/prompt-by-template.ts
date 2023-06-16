@@ -9,18 +9,18 @@ export enum TemplateEnum {
   STATE = "STATE",
 }
 
-const commonRules = `- strict rules: do not add Note and do not explain the code and do not add any additional text except code, do not use 'end' syntax
-        - do not use any parenthesis inside block`;
+const commonRules = `- 严格的规则:不添加注释，不解释代码，不添加任何额外的文本，除了代码，不使用'end'语法
+        - 不要在块内使用任何括号`;
 
 export const promptByTemplate = {
-  [TemplateEnum.FLOWCHART]: (input: string) => `write flowchart about ${input} 
+  [TemplateEnum.FLOWCHART]: (input: string) => `写流程图 ${input} 
         ${commonRules}
-        eg:  correct: C -->|true| D(setLoading), wrong: correct: C -->|true| D(setLoading=>true)
-        eg:  correct: C -->|true| D(axios.post=>'/api/ask', input), wrong: C -->|true| D(axios.post('/api/ask', {input,}))
-        eg: correct: J -->|text| L[Print 'number is not a prime number'] wrong: J -->|| L[Print 'number is not a prime number']
+        例如:  correct: C -->|true| D(setLoading), wrong: correct: C -->|true| D(setLoading=>true)
+        例如:  correct: C -->|true| D(axios.post=>'/api/ask', input), wrong: C -->|true| D(axios.post('/api/ask', {input,}))
+        例如:  correct: J -->|text| L[Print 'number is not a prime number'] wrong: J -->|| L[Print 'number is not a prime number']
         `,
 
-  [TemplateEnum.MINDMAP]: (input: string) => `write mindmap about ${input} 
+  [TemplateEnum.MINDMAP]: (input: string) => `写思维导图 ${input} 
         ${commonRules}
          syntax:
                 
